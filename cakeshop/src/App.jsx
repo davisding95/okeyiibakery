@@ -1,35 +1,62 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Products from "./pages/Products";
+import AboutUs from "./pages/AboutUs";
+import AppLayout from "./pages/AppLayout";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
+import Unauthorized from "./pages/Unauthorized";
+import PageNotFound from "./pages/PageNotFound";
+import { AuthProvider } from "./contexts/AuthProvider";
+import AddCake from "./pages/AddCake";
+import PrivateRoute from "./components/PrivateRoute";
+import { CakeProvider } from "./contexts/CakeContext";
+import ManageCake from "./pages/ManageCake";
+import EditCake from "./pages/EditCake";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
-
-export default App
+    <BrowserRouter>
+      <AuthProvider>
+        <CakeProvider>
+          <Routes>
+            <Route path="/" element={<AppLayout />}>
+              <Route index element={<Home />} />
+              <Route path="/products" element={<Products />} />
+              <Route path="/about" element={<AboutUs />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/login" element={<Login />} />
+              <Route
+                path="/add-cake"
+                element={
+                  <PrivateRoute requiredRole={"admin"}>
+                    <AddCake />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/manage-cake"
+                element={
+                  <PrivateRoute requiredRole={"admin"}>
+                    <ManageCake />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/edit-cake/:id"
+                element={
+                  <PrivateRoute requiredRole={"admin"}>
+                    <EditCake />
+                  </PrivateRoute>
+                }
+              />
+              <Route path="/unauthorized" element={<Unauthorized />} />
+              <Route path="*" element={<PageNotFound />} />
+            </Route>
+          </Routes>
+        </CakeProvider>
+      </AuthProvider>
+    </BrowserRouter>
+  );
+};
+export default App;
