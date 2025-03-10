@@ -1,4 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
+import {
+  initialRegisterValues,
+  registerValidationSchema,
+} from "../models/registerValidationSchema";
 import { Field, Form, Formik, ErrorMessage } from "formik";
 import { useContext, useState } from "react";
 
@@ -12,6 +16,8 @@ const Register = () => {
 
   return (
     <Formik
+      initialValues={initialRegisterValues}
+      validationSchema={registerValidationSchema}
       onSubmit={handleSubmit}
     >
       {({ isSubmitting }) => (
