@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "xLhMDqPyg3U=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Davis\\Documents\\GitHub\\COMP693_25S1_project_Tian_Jun_Ding_1159369\\cakeshop-api\\CakeShop-API.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Davis\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.3\\microsoft.aspnetcore.openapi.9.0.3.nupkg.sha512",
+    "C:\\Users\\Davis\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512"
+  ],
+  "logs": []
+}
