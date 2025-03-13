@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\CakeShop-API.props" />
-</Project>
