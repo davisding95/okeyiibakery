@@ -7,7 +7,9 @@ import { CiSearch } from "react-icons/ci";
 import ResponsiveMenu from "./ResponsiveMenu";
 import ResponsiveNav from "./ResponsiveNav";
 import Button from "./Button";
+import { AuthContext } from "../contexts/AuthProvider";
 import AnimatedMenuIcon from "./AnimatedMenuIcon";
+import AccountMenu from "./AccountMenu";
 import IconButton from "@mui/material/IconButton";
 import { NavLink } from "react-router-dom";
 
@@ -15,6 +17,8 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
 
+  const useAuth = useContext(AuthContext);
+  const { isAuthenticated } = useAuth;
 
   const menuRef = useRef(null);
 
@@ -83,6 +87,29 @@ const Navbar = () => {
             <RiShoppingCartLine />
           </Button>
 
+          <IconButton
+            onClick={handleAccountMenuClick}
+            color="inherit"
+            size="24px"
+            sx={{
+              "&:hover": {
+                backgroundColor: "rgba(251, 191, 36, 1)",
+                color: "white",
+                transition: "all 0.3s",
+              },
+            }}
+            aria-controls={accountMenuOpen ? "account-menu" : undefined}
+            aria-haspopup="true"
+            aria-expanded={accountMenuOpen ? "true" : undefined}
+          >
+            {isAuthenticated ? <MdAccountCircle /> : <MdOutlineAccountCircle />}
+          </IconButton>
+          <AccountMenu
+            anchorEl={anchorEl}
+            handleAccountMenuClose={handleAccountMenuClose}
+            accountMenuOpen={accountMenuOpen}
+            isAuthenticated={isAuthenticated}
+          />
         </div>
         <AnimatedMenuIcon open={open} setOpen={setOpen} />
       </div>

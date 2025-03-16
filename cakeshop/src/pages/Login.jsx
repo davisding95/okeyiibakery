@@ -5,11 +5,29 @@ import {
   loginValidationSchema,
 } from "../models/loginValidationSchema";
 import { useContext, useState } from "react";
-
+import { AuthContext } from "../contexts/AuthProvider";
 
 const Login = () => {
   const useAuth = useContext(AuthContext);
+  const { login } = useAuth;
+
   const [errorMessage, setErrorMessage] = useState("");
+
+  const navigate = useNavigate();
+
+  const className =
+    "px-2 focus:ring-opacity-50 h-8 rounded-sm border border-gray-300 transition-all duration-200 focus:border-blue-500 focus:outline-none text-gray-700 font-normal";
+
+  const handleSubmit = async (values, { setSubmitting }) => {
+    const result = await login(values);
+    if (result.success) {
+      navigate("/");
+    } else {
+      setErrorMessage(result.message);
+    }
+
+    setSubmitting(false);
+  };
 
   return (
     <Formik

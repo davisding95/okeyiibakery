@@ -5,14 +5,32 @@ import {
 } from "../models/registerValidationSchema";
 import { Field, Form, Formik, ErrorMessage } from "formik";
 import { useContext, useState } from "react";
-
+import { AuthContext } from "../contexts/AuthProvider";
 
 const Register = () => {
   const navigate = useNavigate();
+  const useAuth = useContext(AuthContext);
+  const { register } = useAuth;
+
   const [errorMessage, setErrorMessage] = useState("");
 
   const className =
     "px-2 focus:ring-opacity-50 h-8 rounded-sm border border-gray-300 transition-all duration-200 focus:border-blue-500 focus:outline-none text-gray-700 font-normal";
+
+  const handleSubmit = async (values, { setSubmitting }) => {
+    const userValues = { ...values };
+    delete userValues.confirmPassword;
+
+    const result = await register(userValues);
+    console.log(result);
+    if (result.success) {
+      navigate("/");
+    } else {
+      setErrorMessage(result.message);
+    }
+
+    setSubmitting(false);
+  };
 
   return (
     <Formik
