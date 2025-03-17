@@ -1179,19 +1179,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Davis\\.nuget\\packages\\": {}
+    "C:\\Users\\candi\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Davis\\Documents\\GitHub\\COMP693_25S1_project_Tian_Jun_Ding_1159369\\cakeshop-api\\cakeshop_api\\cakeshop_api.csproj",
+      "projectUniqueName": "D:\\GitHub\\COMP693_25S1_project_Tian_Jun_Ding_1159369\\cakeshop-api\\cakeshop_api\\cakeshop_api.csproj",
       "projectName": "cakeshop_api",
-      "projectPath": "C:\\Users\\Davis\\Documents\\GitHub\\COMP693_25S1_project_Tian_Jun_Ding_1159369\\cakeshop-api\\cakeshop_api\\cakeshop_api.csproj",
-      "packagesPath": "C:\\Users\\Davis\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Davis\\Documents\\GitHub\\COMP693_25S1_project_Tian_Jun_Ding_1159369\\cakeshop-api\\cakeshop_api\\obj\\",
+      "projectPath": "D:\\GitHub\\COMP693_25S1_project_Tian_Jun_Ding_1159369\\cakeshop-api\\cakeshop_api\\cakeshop_api.csproj",
+      "packagesPath": "C:\\Users\\candi\\.nuget\\packages\\",
+      "outputPath": "D:\\GitHub\\COMP693_25S1_project_Tian_Jun_Ding_1159369\\cakeshop-api\\cakeshop_api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Davis\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\candi\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
@@ -1261,7 +1261,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
