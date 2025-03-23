@@ -56,38 +56,36 @@ namespace cakeshop_api.Controllers
 
             var token = _jwtHelper.GenerateJwtToken(existingUser);
 
+            // Check if the user is an admin
+            var isAdmin = existingUser.Role == "admin";
+
+            if (isAdmin)
+            {
+                var users = await _userService.GetAllUsers();
+                return Ok(new { User = existingUser, Users = users, Token = token });
+            }
+
+
             return Ok(new { User = existingUser, Token = token });
         }
 
-        [HttpGet("all")]
-        [Authorize(Roles = "admin")]
-        public async Task<IActionResult> GetAllUsers()
-        {
-            var users = await _userService.GetAllUsers();
-            return Ok(users);
-        }
-
         [HttpGet("me")]
-        [Authorize]
+        [Authorize(Roles = "user, admin")]
         public async Task<IActionResult> GetCurrentUserByToken()
         {
-            var authHeader = Request.Headers["Authorization"].FirstOrDefault();
-            if (authHeader == null || !authHeader.StartsWith("Bearer "))
-            {
-                return Unauthorized(new { message = "Invalid or missing Authorization header." });
-            }
-            var jwt = authHeader.Substring("Bearer ".Length).Trim();
-            Console.WriteLine(jwt);
-            var jwtToken = new JwtSecurityTokenHandler().ReadToken(jwt) as JwtSecurityToken;
-            if (jwtToken == null)
-            {
-                return Unauthorized(new { message = "Invalid JWT token." });
-            }
-            var email = jwtToken.Claims.First(claim => claim.Type == ClaimTypes.Email).Value;
+            var email = User.FindFirstValue(ClaimTypes.Email);
+
+            Console.WriteLine("houduan");
+
+            if (email is null) return BadRequest(new { message = "Invalid token." });
+
             var user = await _userService.GetUserByEmail(email);
-            if (user == null)
+
+            var isAdmin = User.IsInRole("admin");
+            if (isAdmin)
             {
-                return Unauthorized(new { message = "User not found." });
+                var users = await _userService.GetAllUsers();
+                return Ok(new { User = user, Users = users });
             }
 
             return Ok(new { User = user });

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\GitHub\\COMP693_25S1_project_Tian_Jun_Ding_1159369\\cakeshop-api\\cakeshop_api\\cakeshop_api.csproj": {}
+    "C:\\Users\\Davis\\Documents\\GitHub\\COMP693_25S1_project_Tian_Jun_Ding_1159369\\cakeshop-api\\cakeshop_api\\cakeshop_api.csproj": {}
   },
   "projects": {
-    "D:\\GitHub\\COMP693_25S1_project_Tian_Jun_Ding_1159369\\cakeshop-api\\cakeshop_api\\cakeshop_api.csproj": {
+    "C:\\Users\\Davis\\Documents\\GitHub\\COMP693_25S1_project_Tian_Jun_Ding_1159369\\cakeshop-api\\cakeshop_api\\cakeshop_api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GitHub\\COMP693_25S1_project_Tian_Jun_Ding_1159369\\cakeshop-api\\cakeshop_api\\cakeshop_api.csproj",
+        "projectUniqueName": "C:\\Users\\Davis\\Documents\\GitHub\\COMP693_25S1_project_Tian_Jun_Ding_1159369\\cakeshop-api\\cakeshop_api\\cakeshop_api.csproj",
         "projectName": "cakeshop_api",
-        "projectPath": "D:\\GitHub\\COMP693_25S1_project_Tian_Jun_Ding_1159369\\cakeshop-api\\cakeshop_api\\cakeshop_api.csproj",
-        "packagesPath": "C:\\Users\\candi\\.nuget\\packages\\",
-        "outputPath": "D:\\GitHub\\COMP693_25S1_project_Tian_Jun_Ding_1159369\\cakeshop-api\\cakeshop_api\\obj\\",
+        "projectPath": "C:\\Users\\Davis\\Documents\\GitHub\\COMP693_25S1_project_Tian_Jun_Ding_1159369\\cakeshop-api\\cakeshop_api\\cakeshop_api.csproj",
+        "packagesPath": "C:\\Users\\Davis\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Davis\\Documents\\GitHub\\COMP693_25S1_project_Tian_Jun_Ding_1159369\\cakeshop-api\\cakeshop_api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\candi\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Davis\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -44,6 +44,10 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "AWSSDK.S3": {
+              "target": "Package",
+              "version": "[3.7.415.23, )"
+            },
             "BCrypt.Net-Next": {
               "target": "Package",
               "version": "[4.0.3, )"
@@ -63,6 +67,10 @@
             "MongoDB.Driver": {
               "target": "Package",
               "version": "[3.2.1, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
             }
           },
           "imports": [
@@ -84,7 +92,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

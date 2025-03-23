@@ -5,11 +5,13 @@ import AboutUs from "./pages/AboutUs";
 import AppLayout from "./pages/AppLayout";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import Unauthorized from "./pages/Unauthorized";
 import PageNotFound from "./pages/PageNotFound";
 import { AuthProvider } from "./contexts/AuthProvider";
-import Unauthorized from "./pages/Unauthorized";
+import AddCake from "./pages/AddCake";
+import PrivateRoute from "./components/PrivateRoute";
 import { CakeProvider } from "./contexts/CakeContext";
-
+import ManageCake from "./pages/ManageCake";
 
 const App = () => {
   return (
@@ -23,6 +25,22 @@ const App = () => {
               <Route path="/about" element={<AboutUs />} />
               <Route path="/register" element={<Register />} />
               <Route path="/login" element={<Login />} />
+              <Route
+                      path="/add-cake"
+                      element={
+                        <PrivateRoute requiredRoles={["admin"]}>
+                          <AddCake />
+                        </PrivateRoute>
+                      }
+                    />
+              <Route
+                      path="/manage-cake"
+                      element={
+                        <PrivateRoute requiredRoles={["admin"]}>
+                          <ManageCake />
+                        </PrivateRoute>
+                      }
+                    />
               <Route path="*" element={<PageNotFound />} />
               <Route path="/unauthorized" element={<Unauthorized />} />
             </Route>

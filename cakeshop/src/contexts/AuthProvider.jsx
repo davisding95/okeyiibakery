@@ -13,31 +13,35 @@ export const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
 
   const [user, setUser] = useState(null);
+  const [users, setUsers] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [jwt, setJwt] = useState(localStorage.getItem("jwt"));
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   // Initialze authentication state on app load
   useEffect(() => {
-    const token = localStorage.getItem("jwt")
-    if(!token) return setIsLoading(false)
+    const token = localStorage.getItem("jwt");
+    if (!token) return setIsLoading(false);
 
     const initializeAuth = async () => {
-      console.log("token", token)
       if (token) {
         try {
           const result = await getUserByToken(token);
           if (result.success) {
+            if (result.data.user.role === "admin") {
+              setUsers(result.data.users);
+            }
             console.log("result", result);
             setUser(result.data.user);
             setJwt(token);
             setIsAuthenticated(true);
           } else {
+            console.log(token)
             logout();
             navigate("/login");
           }
         } catch (error) {
-          // console.error("Error:", error.message);
+          console.error("Error:", error.message);
           logout();
           navigate("/login");
         }
@@ -48,14 +52,13 @@ export const AuthProvider = ({ children }) => {
     };
 
     initializeAuth();
+    // eslint-disable-next-line
   }, []);
 
   // Handle user registration
   const register = async (user) => {
     const result = await createUser(user);
-    console.log(result)
     if (result.success) {
-      console.log("jwt", result.data.token)
       localStorage.setItem("jwt", result.data.token);
       setUser(result.data.user);
       setJwt(result.data.token);
@@ -69,6 +72,9 @@ export const AuthProvider = ({ children }) => {
   const login = async (user) => {
     const result = await loginUser(user);
     if (result.success) {
+      if (result.data.user.role === "admin") {
+        setUsers(result.data.users);
+      }
       localStorage.setItem("jwt", result.data.token);
       setUser(result.data.user);
       setJwt(result.data.token);
@@ -80,26 +86,28 @@ export const AuthProvider = ({ children }) => {
 
   // Handle user logout
   const logout = () => {
+    console.log('logout了')
     localStorage.removeItem("jwt");
     setUser(null);
     setJwt(null);
+    setUsers([]);
     setIsAuthenticated(false);
   };
 
   return (
     <AuthContext.Provider
       value={{
+        users,
         user,
         setUser,
         jwt,
         setJwt,
         isLoading,
-        setIsAuthenticated,
-        setIsLoading,
         register,
         login,
         logout,
         isAuthenticated,
+        setIsAuthenticated,
       }}
     >
       {children}

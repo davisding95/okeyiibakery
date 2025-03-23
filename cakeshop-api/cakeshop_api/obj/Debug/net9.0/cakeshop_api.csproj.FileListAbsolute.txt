@@ -96,3 +96,6 @@ D:\GitHub\COMP693_25S1_project_Tian_Jun_Ding_1159369\cakeshop-api\cakeshop_api\o
 D:\GitHub\COMP693_25S1_project_Tian_Jun_Ding_1159369\cakeshop-api\cakeshop_api\obj\Debug\net9.0\cakeshop_api.pdb
 D:\GitHub\COMP693_25S1_project_Tian_Jun_Ding_1159369\cakeshop-api\cakeshop_api\obj\Debug\net9.0\cakeshop_api.genruntimeconfig.cache
 D:\GitHub\COMP693_25S1_project_Tian_Jun_Ding_1159369\cakeshop-api\cakeshop_api\obj\Debug\net9.0\ref\cakeshop_api.dll
+C:\Users\Davis\Documents\GitHub\COMP693_25S1_project_Tian_Jun_Ding_1159369\cakeshop-api\cakeshop_api\bin\Debug\net9.0\AWSSDK.Core.dll
+C:\Users\Davis\Documents\GitHub\COMP693_25S1_project_Tian_Jun_Ding_1159369\cakeshop-api\cakeshop_api\bin\Debug\net9.0\AWSSDK.S3.dll
+C:\Users\Davis\Documents\GitHub\COMP693_25S1_project_Tian_Jun_Ding_1159369\cakeshop-api\cakeshop_api\bin\Debug\net9.0\Newtonsoft.Json.dll

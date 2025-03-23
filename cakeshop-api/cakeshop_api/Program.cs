@@ -1,6 +1,7 @@
 using cakeshop_api.Services;
 using cakeshop_api.Utils;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.IdentityModel.Tokens;
 using MongoDB.Driver;
 using System.Text;
@@ -14,7 +15,7 @@ var database = mongoClient.GetDatabase(mongoSettings["DatabaseName"]);// databas
 builder.Services.AddSingleton(database);  //add database to service
 
 builder.Services.AddSingleton<UserService>();
-
+builder.Services.AddSingleton<CakeService>();
 
 builder.Services.AddSingleton<JwtHelper>(); // JWT token 
 

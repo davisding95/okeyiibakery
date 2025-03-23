@@ -20,7 +20,7 @@ export const createUser = async (user) => {
     return { success: true, data };
   } catch (error) {
     console.error("Error:", error.message);
-    throw error;
+    return { success: false, message: "Network error, please try again" };
   }
 };
 
@@ -35,6 +35,7 @@ export const login = async (user) => {
       body: JSON.stringify(user),
     });
     if (!res.ok) {
+      console.log("res", res);
       const { message } = await res.json();
       return { success: false, message };
     }
@@ -42,7 +43,7 @@ export const login = async (user) => {
     return { success: true, data };
   } catch (error) {
     console.error("Error:", error.message);
-    throw error;
+    return { success: false, message: "Network error, please try again" };
   }
 };
 
@@ -64,6 +65,6 @@ export const getUserByToken = async (token) => {
     return { success: true, data };
   } catch (error) {
     console.error("Error:", error.message);
-    throw error;
+    return { success: false, message: "Network error, please try again" };
   }
 };
