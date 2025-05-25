@@ -1,4 +1,4 @@
-const BASE_URL = "okeyi.azurewebsites.net";
+const BASE_URL = "https://okeyi.azurewebsites.net";
 
 export const createPaymentSession = async (orderData, jwt) => {
   try {
