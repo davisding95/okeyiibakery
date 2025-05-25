@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:5056/api";
+const BASE_URL = "okeyi.azurewebsites.net";
 
 export const getCarts = async (jwt) => {
   try {
