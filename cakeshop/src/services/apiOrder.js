@@ -1,8 +1,8 @@
-const BASE_URL = "okeyi.azurewebsites.net/api";
+const BASE_URL = "okeyi.azurewebsites.net";
 
 export const createOrder = async (order, jwt) => {
   try {
-    const res = await fetch(`${BASE_URL}/order`, {
+    const res = await fetch(`${BASE_URL}/api/order`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${jwt}`,
@@ -24,7 +24,7 @@ export const createOrder = async (order, jwt) => {
 
 export const getOrders = async (jwt) => {
   try {
-    const res = await fetch(`${BASE_URL}/order`, {
+    const res = await fetch(`${BASE_URL}/api/order`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${jwt}`,
@@ -45,7 +45,7 @@ export const getOrders = async (jwt) => {
 
 export const deleteOrder = async (id, jwt) => {
   try {
-    const res = await fetch(`${BASE_URL}/order/${id}`, {
+    const res = await fetch(`${BASE_URL}/api/order/${id}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${jwt}`,
@@ -65,7 +65,7 @@ export const deleteOrder = async (id, jwt) => {
 
 export const updateOrder = async (id, jwt, order) => {
   try {
-    const res = await fetch(`${BASE_URL}/order/${id}`, {
+    const res = await fetch(`${BASE_URL}/api/order/${id}`, {
       method: "PUT",
       headers: {
         Authorization: `Bearer ${jwt}`,
@@ -87,7 +87,7 @@ export const updateOrder = async (id, jwt, order) => {
 export const getOrderByPaymentIntentId = async (paymentIntentId, jwt) => {
   try {
     const res = await fetch(
-      `${BASE_URL}/order/payment-intent/${paymentIntentId}`,
+      `${BASE_URL}/api/order/payment-intent/${paymentIntentId}`,
       {
         method: "GET",
         headers: {

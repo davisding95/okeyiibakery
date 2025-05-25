@@ -1,8 +1,8 @@
-const BASE_URL = "okeyi.azurewebsites.net/api";
+const BASE_URL = "okeyi.azurewebsites.net";
 
 export const createPaymentSession = async (orderData, jwt) => {
   try {
-    const res = await fetch(`${BASE_URL}/payment/create-checkout-session`, {
+    const res = await fetch(`${BASE_URL}/api/payment/create-checkout-session`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${jwt}`,
@@ -26,7 +26,7 @@ export const createPaymentSession = async (orderData, jwt) => {
 
 export const verifyPayment = async (sessionId, jwt) => {
   try {
-    const res = await fetch(`${BASE_URL}/payment/verify/${sessionId}`, {
+    const res = await fetch(`${BASE_URL}/api/payment/verify/${sessionId}`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${jwt}`,
