@@ -20,7 +20,7 @@ import CakeContext from "../contexts/CakeContext";
 import * as signalR from "@microsoft/signalr";
 import MessagePopup from "./MessagePopup";
 
-const BASE_URL = "okeyi.azurewebsites.net";
+const BASE_URL = "https://okeyi.azurewebsites.net";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
