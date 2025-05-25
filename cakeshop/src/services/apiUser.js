@@ -1,4 +1,4 @@
-const BASE_URL = "okeyi.azurewebsites.net";
+const BASE_URL = "okeyi.azurewebsites.net/api";
 
 // User Registration
 export const createUser = async (user) => {
