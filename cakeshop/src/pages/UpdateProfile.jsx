@@ -25,7 +25,7 @@ export default function UpdateProfile() {
     const { users, updateUser } = useContext(AuthContext);
     const navigate = useNavigate();
 
-    const user = users.find((user) => user.id === id);
+    const user = users.find((user) => user.id === id && user.role === "user");
 
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
