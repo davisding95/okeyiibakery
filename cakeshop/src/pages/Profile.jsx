@@ -22,13 +22,17 @@ export default function UserManagement() {
     const [sortConfig, setSortConfig] = useState({ key: "username", direction: "asc" });
 
     // Filtering users based on the search query
-    const filteredUsers = users.filter(user => 
-        (user.username && user.username.toLowerCase().includes(searchQuery.toLowerCase())) ||
-        (user.email && user.email.toLowerCase().includes(searchQuery.toLowerCase())) ||
-        (user.phoneNumber && user.phoneNumber.toLowerCase().includes(searchQuery.toLowerCase())) ||
-        (user.address && user.address.toLowerCase().includes(searchQuery.toLowerCase()))
-    );
-    
+    // Filtering users based on role and search query
+    const filteredUsers = users
+        .filter(user => user.role === "user") // only shows user
+        .filter(user =>
+            (user.username && user.username.toLowerCase().includes(searchQuery.toLowerCase())) ||
+            (user.email && user.email.toLowerCase().includes(searchQuery.toLowerCase())) ||
+            (user.phoneNumber && user.phoneNumber.toLowerCase().includes(searchQuery.toLowerCase())) ||
+            (user.address && user.address.toLowerCase().includes(searchQuery.toLowerCase()))
+        );
+
+
 
     // Sorting function
     const sortUsers = (users) => {
