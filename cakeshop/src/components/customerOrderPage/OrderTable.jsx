@@ -75,7 +75,6 @@ export default function OrderTable({
           <Option value="">All</Option>
           <Option value="Pending">Pending</Option>
           <Option value="Confirmed">Confirmed</Option>
-          <Option value="Completed">Completed</Option>
         </Select>
       </FormControl>
       <FormControl size="sm">

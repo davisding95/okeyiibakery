@@ -4,7 +4,6 @@ import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 import { RiShoppingCartLine } from "react-icons/ri";
 import { MdAccountCircle } from "react-icons/md";
-import { CiSearch } from "react-icons/ci";
 import { Badge } from "@mui/material";
 import PropTypes from "prop-types";
 
@@ -41,13 +40,6 @@ const ResponsiveMenu = ({ totalCartItems, toggleDrawer, onClick, orders }) => {
     >
       <Box sx={{ width: "100%", boxShadow: 6, bgcolor: "#fff" }}>
         <BottomNavigation showLabels sx={{ height: "80px" }}>
-          <BottomNavigationAction
-            label="Search"
-            icon={<CiSearch size="25px" />}
-            sx={{
-              "& .MuiBottomNavigationAction-label": { fontSize: "0.7rem" },
-            }}
-          />
           <BottomNavigationAction
             onClick={toggleDrawer(true)}
             label="My Cart"
